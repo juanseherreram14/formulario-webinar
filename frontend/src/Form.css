@@ -1,0 +1,117 @@
+/* frontend/src/Form.css */
+body, html {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header con imagen de fondo */
+.header {
+  background-image: url('../public/bg-conferencia.jpg'); /* Cambia esto por la imagen que subiste */
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 100%;
+  position: relative;
+  color: white;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  max-width: 700px;
+}
+
+.overlay p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.date-box {
+  margin-top: 10px;
+  background-color: #ff5c5c;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Caja blanca del formulario */
+.form-box {
+  background: white;
+  padding: 2rem;
+  margin-top: -60px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.registro-opciones {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.registro-opciones label {
+  margin: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #0057a0;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: #004080;
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+  .form-group input {
+    width: calc(50% - 0.5rem);
+  }
+}
