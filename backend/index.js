@@ -1,4 +1,3 @@
-// backend/index.js
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -11,12 +10,9 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(bodyParser.json());
 
-let registros = [];
-
 app.post('/api/registrar', async (req, res) => {
   const data = req.body;
-  registros.push(data);
-  console.log('Nuevo registro:', data);
+  console.log('Registro recibido:', data);
 
   try {
     await axios.post(
@@ -27,8 +23,7 @@ app.post('/api/registrar', async (req, res) => {
         fields: {
           empresa: data.empresa,
           cargo: data.cargo,
-          telefono: data.telefono,
-          tipoRegistro: data.tipoRegistro
+          telefono: data.telefono
         }
       },
       {
@@ -38,14 +33,11 @@ app.post('/api/registrar', async (req, res) => {
         }
       }
     );
-
-    res.status(200).json({ mensaje: 'Registro exitoso en MailerLite' });
+    res.status(200).json({ mensaje: 'Registro exitoso' });
   } catch (err) {
-    console.error('Error MailerLite:', err.response?.data || err.message);
-    res.status(500).json({ mensaje: 'Error al registrar en MailerLite' });
+    console.error('Error registrando:', err.response?.data || err.message);
+    res.status(500).json({ mensaje: 'Error al registrarse' });
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
